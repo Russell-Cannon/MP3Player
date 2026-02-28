@@ -19,7 +19,7 @@ static void write_data(const uint8_t *data, size_t len) {
 static void write_data_byte(uint8_t b) { write_data(&b, 1); }
 
 void st7789_init(void) {
-    spi_init(ST7789_SPI_PORT, 62500000); // 62.5 MHz
+    spi_init(ST7789_SPI_PORT, 10000000); // 10 MHz
     gpio_set_function(ST7789_CLK,  GPIO_FUNC_SPI);
     gpio_set_function(ST7789_MOSI, GPIO_FUNC_SPI);
 
@@ -31,7 +31,7 @@ void st7789_init(void) {
     // Hardware reset
     gpio_put(ST7789_RST, 1); sleep_ms(10);
     gpio_put(ST7789_RST, 0); sleep_ms(10);
-    gpio_put(ST7789_RST, 1); sleep_ms(50);
+    gpio_put(ST7789_RST, 1); sleep_ms(150);
 
     write_cmd(0x01); sleep_ms(150); // SWRESET
     write_cmd(0x11); sleep_ms(255); // SLPOUT

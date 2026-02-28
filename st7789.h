@@ -8,7 +8,7 @@
 #define ST7789_CS   5
 #define ST7789_DC   6
 #define ST7789_RST  7
-#define ST7789_BL   8   // or wire to 3.3V
+#define ST7789_BL   8
 
 #define ST7789_WIDTH  320
 #define ST7789_HEIGHT 240
